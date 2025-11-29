@@ -1,0 +1,30 @@
+{
+    "name": "eve-data-site-server",
+    "version": "1.0.0",
+    "type": "module",
+    "description": "Backend API server for EVE Data Site",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "dev": "node --watch index.js",
+        "sync:regions": "node jobs/syncRegions.js",
+        "sync:regions-batch": "node jobs/syncRegionsBatch.js",
+        "sync:stations": "node jobs/syncStations.js",
+        "sync:structures": "node jobs/syncStructures.js",
+        "sync:market-tree": "node jobs/syncMarketTree.js",
+        "sync:market-orders": "node jobs/syncMarketOrders.js",
+        "sync:all": "npm run sync:regions && npm run sync:stations && npm run sync:market-tree",
+        "scheduler": "node jobs/scheduler.js"
+    },
+    "dependencies": {
+        "express": "^4.18.2",
+        "mysql2": "^3.6.5",
+        "cors": "^2.8.5",
+        "dotenv": "^16.3.1",
+        "compression": "^1.7.4",
+        "node-cron": "^3.0.3"
+    },
+    "devDependencies": {
+        "nodemon": "^3.0.2"
+    }
+}

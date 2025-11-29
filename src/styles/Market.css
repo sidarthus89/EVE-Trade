@@ -1,0 +1,50 @@
+.market-page {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.market-container {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 2rem;
+}
+
+.market-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.market-content h1 {
+    color: #00d4ff;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.no-selection {
+    background-color: #0f1425;
+    border: 2px dashed #1a3a5a;
+    border-radius: 8px;
+    padding: 4rem 2rem;
+    text-align: center;
+    color: #808080;
+}
+
+.item-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+@media (max-width: 1024px) {
+    .market-container {
+        grid-template-columns: 240px 1fr;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .market-container {
+        grid-template-columns: 1fr;
+    }
+}

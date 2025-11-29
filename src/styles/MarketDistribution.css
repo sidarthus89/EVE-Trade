@@ -1,0 +1,33 @@
+.market-distribution {
+    background: rgba(15, 20, 37, 0.8);
+    border: 1px solid #00d4ff;
+    border-radius: 8px;
+    padding: 30px;
+    min-height: 400px;
+}
+
+.distribution-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    min-height: 350px;
+    text-align: center;
+}
+
+.distribution-placeholder p {
+    color: #e0e0e0;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.distribution-placeholder strong {
+    color: #00d4ff;
+}
+
+.placeholder-text {
+    color: #999 !important;
+    font-size: 0.9rem !important;
+    font-style: italic;
+}

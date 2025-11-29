@@ -1,0 +1,129 @@
+.market-sidebar {
+    background: rgba(15, 20, 37, 0.9);
+    border: 1px solid #00d4ff;
+    border-radius: 8px;
+    padding: 20px;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+    position: sticky;
+    top: 100px;
+    scrollbar-width: thin;
+    scrollbar-color: #00d4ff rgba(0, 212, 255, 0.1);
+}
+
+.market-sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.market-sidebar::-webkit-scrollbar-track {
+    background: rgba(0, 212, 255, 0.05);
+    border-radius: 4px;
+}
+
+.market-sidebar::-webkit-scrollbar-thumb {
+    background: #00d4ff;
+    border-radius: 4px;
+}
+
+.market-sidebar::-webkit-scrollbar-thumb:hover {
+    background: #00ffff;
+}
+
+.sidebar-header {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+}
+
+.sidebar-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #00d4ff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.sidebar-tabs {
+    display: flex;
+    gap: 8px;
+    margin: 10px 0 15px 0;
+}
+
+.tab-button {
+    flex: 1;
+    background: rgba(0, 212, 255, 0.08);
+    border: 1px solid rgba(0, 212, 255, 0.4);
+    color: #e0e0e0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 8px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.25s ease;
+}
+
+.tab-button:hover {
+    background: rgba(0, 212, 255, 0.18);
+}
+
+.tab-button.active {
+    background: #00d4ff;
+    color: #0a0e27;
+    border-color: #00d4ff;
+    box-shadow: 0 0 6px rgba(0, 212, 255, 0.6);
+}
+
+.quickbar-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.quickbar-empty {
+    font-size: 0.75rem;
+    color: #888;
+    font-style: italic;
+    line-height: 1.3;
+}
+
+.quickbar-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.quickbar-select {
+    flex: 1;
+    text-align: left;
+    background: rgba(0, 212, 255, 0.08);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    color: #e0e0e0;
+    font-size: 0.75rem;
+    padding: 6px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.quickbar-select:hover {
+    background: rgba(0, 212, 255, 0.18);
+}
+
+.quickbar-remove {
+    background: rgba(255, 60, 60, 0.15);
+    border: 1px solid rgba(255, 60, 60, 0.4);
+    color: #ff5c5c;
+    font-size: 0.7rem;
+    padding: 6px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    line-height: 1;
+    transition: background 0.2s ease;
+}
+
+.quickbar-remove:hover {
+    background: rgba(255, 60, 60, 0.3);
+}

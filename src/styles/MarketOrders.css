@@ -1,0 +1,60 @@
+.market-orders {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 30px;
+}
+
+.table-section {
+    background: rgba(15, 20, 37, 0.8);
+    border: 1px solid #00d4ff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table-title {
+    background: rgba(0, 212, 255, 0.05);
+    border-bottom: 1px solid #00d4ff;
+    padding: 12px 16px;
+    margin: 0;
+    font-size: 1rem;
+    color: #00d4ff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.table-wrapper {
+    padding: 20px;
+    max-height: 500px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #00d4ff rgba(0, 212, 255, 0.1);
+}
+
+.table-wrapper::-webkit-scrollbar {
+    width: 8px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+    background: rgba(0, 212, 255, 0.05);
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+    background: #00d4ff;
+    border-radius: 4px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #00ffff;
+}
+
+.placeholder {
+    text-align: center;
+    color: #999;
+    margin: 40px 0;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+/* No special responsive needed; vertical stack works everywhere */
