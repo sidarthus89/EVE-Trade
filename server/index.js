@@ -15,6 +15,15 @@ const allowedOrigins = process.env.ALLOWED_ORIGINS
     ? process.env.ALLOWED_ORIGINS.split(',')
     : ['http://localhost:5173', 'http://localhost:5174'];
 
+// Log environment status on startup
+console.log('\n📋 Environment Configuration:');
+console.log(`   NODE_ENV: ${process.env.NODE_ENV || 'not set'}`);
+console.log(`   PORT: ${PORT}`);
+console.log(`   DB_HOST: ${process.env.DB_HOST || 'not set'}`);
+console.log(`   DB_USER: ${process.env.DB_USER || 'not set'}`);
+console.log(`   DB_NAME: ${process.env.DB_NAME || 'not set'}`);
+console.log(`   ALLOWED_ORIGINS: ${process.env.ALLOWED_ORIGINS || 'not set'}\n`);
+
 // Middleware
 app.use(compression());
 app.use(cors({
@@ -100,11 +109,11 @@ app.use((err, req, res, next) => {
 // Start server
 async function startServer() {
     try {
-        // Test database connection
+        // Test database connection (non-blocking)
         const dbConnected = await testConnection();
         if (!dbConnected) {
-            console.error('Failed to connect to database. Server not started.');
-            process.exit(1);
+            console.warn('⚠️  Database connection failed. Server will start anyway.');
+            console.warn('⚠️  Check server/.env file and database credentials.\n');
         }
 
         // Start Express server
@@ -115,9 +124,11 @@ async function startServer() {
             console.log(`   Health: http://localhost:${PORT}/health`);
             console.log(`   API: http://localhost:${PORT}/api\n`);
 
-            // Start data sync scheduler
-            if (process.env.ENABLE_SCHEDULER !== 'false') {
+            // Start data sync scheduler only if DB connected
+            if (dbConnected && process.env.ENABLE_SCHEDULER !== 'false') {
                 startScheduler();
+            } else if (!dbConnected) {
+                console.log('[SCHEDULER] Disabled - database not connected\n');
             } else {
                 console.log('[SCHEDULER] Disabled via ENABLE_SCHEDULER=false\n');
             }
