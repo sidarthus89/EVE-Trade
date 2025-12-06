@@ -7,6 +7,7 @@
         "dev": "vite",
         "build": "vite build",
         "preview": "vite preview",
+        "deploy": "git add . && git commit && git push origin main",
         "fetch:regions": "node scripts/fetchRegions.js",
         "fetch:stations": "node scripts/fetchStations.js",
         "fetch:all": "npm run fetch:regions && npm run fetch:stations"
@@ -18,6 +19,7 @@
     },
     "devDependencies": {
         "@vitejs/plugin-react": "^4.2.0",
+        "concurrently": "^9.2.1",
         "vite": "^5.0.0"
     }
 }

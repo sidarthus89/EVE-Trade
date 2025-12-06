@@ -25,6 +25,12 @@ export async function syncMarketOrders(regionId = null, isPopular = false) {
         // Insert or update orders
         let processedCount = 0;
         for (const order of orders) {
+            // Skip orders with missing required fields
+            if (!order.expires || !order.issued) {
+                console.log(`[SYNC] Skipping order ${order.order_id} - missing required fields`);
+                continue;
+            }
+
             await pool.query(
                 `INSERT INTO market_orders 
                  (order_id, region_id, type_id, location_id, system_id, is_buy_order, 
@@ -38,7 +44,7 @@ export async function syncMarketOrders(regionId = null, isPopular = false) {
                     last_updated = NOW()`,
                 [
                     order.order_id,
-                    order.region_id,
+                    regionId,  // Use the regionId parameter since ESI doesn't include it in response
                     order.type_id,
                     order.location_id,
                     order.system_id,
